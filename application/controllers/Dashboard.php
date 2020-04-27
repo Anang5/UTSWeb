@@ -6,12 +6,14 @@ class Dashboard extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('M_barang');
+		$this->load->model('M_sewa'); 
+		$this->load->model('M_jenis'); 
 	}
 
 	public function index()
 	{
-		$data['barang'] = $this->M_barang->getBarang();
+		$data['sewa'] = $this->M_sewa->getSewa();
+		$data['jenis_mobil'] = $this->M_jenis->getJenis();
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar');
 		$this->load->view('admin/dashboard', $data);
@@ -21,42 +23,65 @@ class Dashboard extends CI_Controller {
 
 	public function tambah()
 	{
+
 		$data = array(
-			'nama_barang' => $this->input->post('nama_barang'),
-			'kategori' => $this->input->post('kategori'),
-			'stok' => $this->input->post('stok'),
+			'nama' => $this->input->post('nama'),
+			'alamat' => $this->input->post('alamat'),
+			'telpon' => $this->input->post('telpon'),
+			'jenis_mobil' => $this->input->post('jenis_mobil'),
+			'masa_sewa' => $this->input->post('masa_sewa'),
 			'harga' => $this->input->post('harga'),
 
 	);
 
-		$this->db->insert('barang', $data);
-		$this->session->set_flashdata('info', 'Tambah Data Barang Berhasil !');
+		$this->db->insert('sewa', $data);
+		$this->session->set_flashdata('info', 'Tambah Data  Berhasil !');
 		redirect('dashboard','refresh');
 	}
 
 
-	public function hapus($idbarang)
+	public function hapus($idsewa)
 	{
 		
-		$this->M_barang->hapus($idbarang);
+		$this->M_sewa->hapus($idsewa);
 		$this->session->set_flashdata('info', 'Data Berhasil Di Hapus' );
 		redirect('dashboard','refresh');
 	}
 
-	public function edit()
+	// public function edit()
+	// {
+	// 	$data = array(
+	// 		'idsewa' => $this->input->post('idsewa'),
+	// 		'nama' => $this->input->post('nama'),
+	// 		'alamat' => $this->input->post('alamat'),
+	// 		'telpon' => $this->input->post('telpon'),
+	// 		'jenis_mobil' => $this->input->post('jenis_mobil'),
+	// 		'masa_sewa' => $this->input->post('masa_sewa'),
+	// 		'harga' => $this->input->post('harga'),
+
+	// 	);
+
+	// 	$this->db->where('idsewa', $this->input->post('idsewa'));
+	// 	$this->db->update('sewa', $data);
+	// 	$this->session->set_flashdata('info', 'Update Data  Berhasil !');
+	// 	redirect('dashboard','refresh');
+	// }
+	public function update()
 	{
+
 		$data = array(
-			 //'idbarang' => $this->input->post('idbarang'),
-			'nama_barang' => $this->input->post('nama_barang'),
-			'kategori' => $this->input->post('kategori'),
-			'stok' => $this->input->post('stok'),
+			'idsewa' => $this->input->post('idsewa'),
+			'nama' => $this->input->post('nama'),
+			'alamat' => $this->input->post('alamat'),
+			'telpon' => $this->input->post('telpon'),
+			'jenis_mobil' => $this->input->post('jenis_mobil'),
+			'masa_sewa' => $this->input->post('masa_sewa'),
 			'harga' => $this->input->post('harga'),
 
-		);
-
-		$this->db->where('idbarang', $this->input->post('idbarang'));
-		$this->db->update('barang', $data);
-		$this->session->set_flashdata('info', 'Update Data Barang Berhasil !');
+	);
+		$this->db->where('idsewa', $this->input->post('idsewa'));
+		$this->db->update('sewa', $data);
+		$this->session->set_flashdata('info', 'Update Data  Berhasil !');
 		redirect('dashboard','refresh');
 	}
 }
