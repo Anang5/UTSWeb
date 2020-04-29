@@ -1,3 +1,6 @@
+
+
+
   <div class="content-wrapper">
     <section class="content container-fluid">
     	<div class="row">
@@ -35,8 +38,9 @@
                                     <td><?php echo $sw->alamat?></td>
                                     <td><?php echo $sw->telpon?></td>
                                     <td><?php echo $sw->jenis_mobil?></td>
-                                    <td><?php echo $sw->masa_sewa?></td>
+                                    <td><?php echo $sw->masa_sewa .' Hari' ?> </td>
                                     <td><?php echo $sw->harga?></td>
+                                    
     								<td>
     									<button class="btn btn-warning" data-toggle="modal" data-target="#modaledit<?= $sw->idsewa ;?>"><i class="fa fa-pencil"></i></button>
     									<a href="<?= base_url('Dashboard/hapus/') ; ?><?= $sw->idsewa ; ?>" class="btn btn-danger" onclick= "return confirm('yakin ingin menghapus Data'); " ><i class="glyphicon glyphicon-trash"></i></a>

@@ -73,7 +73,7 @@ desired effect
 
                 <p>
                   <?php echo $this->session->userdata('nama'); ?> 
-                  <small>Member since Nov. 2019</small>
+                  <small> UNISNU, Angkatan 2018</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -81,10 +81,10 @@ desired effect
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="#modal-profil" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?= base_url('login/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?= base_url('login/logout') ?>" class="btn btn-default btn-flat">Sign Out</i></a>
                 </div>
               </li>
             </ul>

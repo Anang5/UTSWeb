@@ -30,9 +30,46 @@
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
-        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span>
-        <li class="active"><a href="#"><i class="fa fa-gears"></i> <span>Barang</span>
         
+        <li class="active"><a href="#"><i class="fa fa-gears"></i> <span>Pemesanan</span>
+        <li>
+          <a href="#modal-profil" data-toggle="modal">
+            <i class="fa fa-user"></i><span> Profil</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+<!-- modal about -->
+<div class="modal modal-default fade" id="modal-profil">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+       <h4 class="modal-title">Profil</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <input type="hidden" name="idadmin">
+          <label>NIM</label>
+          <input type="number" class="form-control" readonly value="181240000772">
+        </div>
+        <div class="form-group">
+          <label>NAMA</label>
+          <input type="text" class="form-control" readonly value="ANANG MA'RUF">
+        </div>
+        <div class="form-group">
+          <label>PRODI/SEMESTER</label>
+          <input type="TEXT" class="form-control" readonly value="TEKNIK INFORMATIKA / 4 ">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.modal about-->
       </ul>
         </li>
       </ul>
